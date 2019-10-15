@@ -1,4 +1,4 @@
-package com.agan.javaeight.flatmap;
+package com.agan.java8.flatmap;
 
 import org.junit.Test;
 
@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FlatMapDemo {
+public class FlatMapDemoTest {
 
     @Test
     public void demo(){
