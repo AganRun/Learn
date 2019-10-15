@@ -14,7 +14,7 @@ public enum WeekEnum {
     private String date;
 
     // 定义一个带参数的构造器，枚举类的构造器只能使用 private 修饰
-    private WeekEnum(String date) {
+    WeekEnum(String date) {
         this.date = date;
     }
 

@@ -58,7 +58,9 @@ public class EnumWeekTest {
         //报错
 //        System.out.println(WeekEnum.valueOf("星期一"));
 
+        //星期一(因为重写了toString)
         System.out.println(WeekEnum.valueOf("MONDAY"));
+        //星期一
         System.out.println(WeekEnum.valueOf(WeekEnum.class, "MONDAY"));
     }
 
