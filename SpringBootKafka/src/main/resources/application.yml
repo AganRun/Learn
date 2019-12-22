@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+# Kafka
+spring:
+  kafka:
+    bootstrap-servers: 192.168.88.200:9092
+    consumer:
+      group-id: myGroup
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+logging:
+  level:
+    root: info
