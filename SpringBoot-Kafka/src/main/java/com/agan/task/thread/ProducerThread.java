@@ -3,7 +3,6 @@ package com.agan.task.thread;
 import com.agan.common.Constants;
 import com.agan.pojo.Message;
 import com.alibaba.fastjson.JSON;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 
 import java.time.LocalDateTime;
@@ -14,7 +13,7 @@ public class ProducerThread implements Runnable{
 
     private KafkaTemplate kafkaTemplate;
 
-    public static final int SLEEP_TIME = 1;
+    public static final int SLEEP_TIME = 500;
 
     public ProducerThread(KafkaTemplate kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
@@ -28,7 +27,7 @@ public class ProducerThread implements Runnable{
             message.setId(UUID.randomUUID().toString()).setName(Thread.currentThread().getName()).setSendTime(LocalDateTime.now());
             kafkaTemplate.send(Constants.TOPIC, JSON.toJSONString(message));
             try {
-                TimeUnit.SECONDS.sleep(SLEEP_TIME);
+                TimeUnit.MICROSECONDS.sleep(SLEEP_TIME);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
