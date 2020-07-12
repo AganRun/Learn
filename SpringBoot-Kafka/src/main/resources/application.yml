@@ -1,8 +1,9 @@
 server:
   port: 8080
-
 # Kafka
 spring:
+  application:
+    name: springboot-kafka
   kafka:
     bootstrap-servers: 192.168.88.200:9092
     consumer:
