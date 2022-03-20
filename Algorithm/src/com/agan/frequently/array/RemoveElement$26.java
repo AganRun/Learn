@@ -4,7 +4,7 @@ package com.agan.frequently.array;
  * https://leetcode-cn.com/problems/remove-element/
  * https://programmercarl.com/0027.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0.html
  */
-public class RemoveElement$27 {
+public class RemoveElement$26 {
 
     /**
      * 给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。
@@ -35,7 +35,7 @@ public class RemoveElement$27 {
     }
 
     public static void main(String[] args) {
-        RemoveElement$27 re = new RemoveElement$27();
+        RemoveElement$26 re = new RemoveElement$26();
         System.out.println(re.removeElement(new int[]{3, 2, 2, 3}, 3));
     }
 }
