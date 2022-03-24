@@ -1,4 +1,4 @@
-package com.agan.frequently.array;
+package com.agan.leetcode.array;
 
 /**
  * https://leetcode-cn.com/problems/remove-element/

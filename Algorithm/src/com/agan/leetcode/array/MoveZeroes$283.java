@@ -1,4 +1,4 @@
-package com.agan.frequently.array;
+package com.agan.leetcode.array;
 
 import java.util.Arrays;
 
