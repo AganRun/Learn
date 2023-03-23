@@ -1,6 +1,6 @@
 package com.agan.leetcode.array;
 
-public class BinarySearch$704 {
+public class $704_BinarySearch {
 
     /**
      * https://programmercarl.com/0704.%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.html
@@ -28,7 +28,7 @@ public class BinarySearch$704 {
     }
 
     public static void main(String[] args) {
-        BinarySearch$704 bs = new BinarySearch$704();
+        $704_BinarySearch bs = new $704_BinarySearch();
         System.out.println(bs.search(new int[]{1,0,3,5,9,12}, 13));
     }
 }
