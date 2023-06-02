@@ -42,7 +42,7 @@ public class $35_SearchInsertPosition {
                 return middle;
             }
         }
-        return right + 1;
+        return right + 1;  // return left也行
     }
 
     public static void main(String[] args) {
