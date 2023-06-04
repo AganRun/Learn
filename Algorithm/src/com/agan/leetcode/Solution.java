@@ -1,5 +1,6 @@
 package com.agan.leetcode;
 
+
 import java.util.Arrays;
 
 public class Solution {
@@ -50,6 +51,29 @@ public class Solution {
         }
         return 0;
     }
+
+    public ListNode removeElements(ListNode head, int val) {
+        ListNode pre = new ListNode();
+        pre.next = head;
+        ListNode index = pre;
+        while (pre.next != null) {
+            if (pre.next.val == val) {
+                pre.next = pre.next.next;
+            } else {
+                pre = pre.next;
+            }
+        }
+        return index.next;
+    }
+
+     public class ListNode {
+         int val;
+         ListNode next;
+         ListNode() {}
+         ListNode(int val) { this.val = val; }
+         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+     }
+
 
     public static void main(String[] args) {
         Solution s = new Solution();
