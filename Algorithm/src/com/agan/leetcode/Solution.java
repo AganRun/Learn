@@ -1,34 +1,60 @@
 package com.agan.leetcode;
 
+import java.util.Arrays;
+
 public class Solution {
 
-    /**
-     * 二分查找
-     * 0 1 2 3 4
-     * 5
-     * @param nums
-     * @param target
-     * @return
-     */
-    public int search(int[] nums, int target) {
+    public boolean backspaceCompare(String s, String t) {
+        return true;
+    }
+
+    public int[] sortedSquares(int[] nums) {
+        int newTail = nums.length - 1;
         int left = 0;
         int right = nums.length - 1;
+        int[] targetArr = new int[nums.length];
         while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] < target) {
-                left = mid + 1;
-            } else if (nums[mid] > target) {
-                right = mid - 1;
+            if (nums[left] * nums[left] < nums[right] * nums[right]) {
+                targetArr[newTail--] = nums[right] * nums[right];
+                right--;
             } else {
-                return mid;
+                targetArr[newTail--] = nums[left] * nums[left];
+                left++;
             }
-
         }
-        return -1;
+        return targetArr;
+    }
+
+    public int minSubArrayLen(int target, int[] nums) {
+        int left = 0;
+        int right = 0;
+        int sum = 0;
+        int min = Integer.MAX_VALUE;
+        while (right < nums.length) {
+            sum += nums[right];
+            if (sum < target) {
+                right++;
+            } else if (sum == target) {
+                min = Math.min(min, right - left + 1);
+                sum += nums[right];
+                right++;
+            } else {
+                while (sum > target && left < nums.length) {
+                    sum -= nums[left];
+                    left++;
+                }
+            }
+        }
+        if (min != Integer.MAX_VALUE) {
+            return min;
+        }
+        return 0;
     }
 
     public static void main(String[] args) {
         Solution s = new Solution();
-        System.out.println(s.search(new int[]{-1,0,3,5,9,13}, 13));
+//        System.out.println(s.backspaceCompare("abc#c", "#"));
+//        System.out.println(Arrays.toString(s.sortedSquares(new int[]{-5, 0, 3})));
+        System.out.println(s.minSubArrayLen(7, new int[]{2,3,1,2,4,3}));
     }
 }
