@@ -1,4 +1,4 @@
-package com.agan.leetcode.string;
+package com.agan.leetcode.doublePointer.string;
 
 /**
  * 459. 重复的子字符串
