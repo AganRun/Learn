@@ -50,11 +50,12 @@ public class $144_BinaryTreePreorderTraversal {
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()) {
-            root = stack.pop();
-            if (root != null) {
-                result.add(root.val);
-                stack.push(root.right);
-                stack.push(root.left);
+            TreeNode node = stack.pop();
+            if (node != null) {
+                result.add(node.val);
+                //因为栈是先进后出。所以为了中 左右，输出，先压右节点，再压入左节点
+                stack.push(node.right);
+                stack.push(node.left);
             }
         }
         return result;
