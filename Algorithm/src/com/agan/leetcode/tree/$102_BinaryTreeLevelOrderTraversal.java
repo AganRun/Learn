@@ -13,9 +13,38 @@ import java.util.Queue;
  */
 public class $102_BinaryTreeLevelOrderTraversal {
 
+    List<List<Integer>> result = new ArrayList<>();
+
     public List<List<Integer>> levelOrder(TreeNode root) {
+        dsf(root, 0);
+        return result;
+//        return bfs(root);
+    }
+
+    /**
+     * 深度优先
+     * @param root
+     * @param deep
+     */
+    public void dsf(TreeNode root, int deep) {
+        if (root == null) {
+            return;
+        }
+        if (deep + 1 > result.size()) {
+            result.add(new ArrayList<>());
+        }
+        result.get(deep).add(root.val);
+        dsf(root.left, deep+1);
+        dsf(root.right, deep+1);
+    }
+
+    /**
+     * 广度优先
+     * @param root
+     * @return
+     */
+    public List<List<Integer>> bfs(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();
-        List<List<Integer>> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
