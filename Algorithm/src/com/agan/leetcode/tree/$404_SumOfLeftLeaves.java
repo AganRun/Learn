@@ -11,6 +11,11 @@ public class $404_SumOfLeftLeaves {
         return dfs(root, 0);
     }
 
+    /**
+     * @param root
+     * @param pos  1:左 0：右
+     * @return
+     */
     public int dfs(TreeNode root, int pos) {
         if (root == null) {
             return 0;
