@@ -35,6 +35,7 @@ public class $501_FindModeInBinarySearchTree {
 
     List<Integer> res = new ArrayList<>();
     int maxFrequency = 0;
+    //还可以优化。不要额外的存储空间。因为数组树顺序递增的，可以通过判断前一个元素来计次
     Map<Integer, Integer> map = new HashMap<>();
 
     public void traversal(TreeNode root) {
