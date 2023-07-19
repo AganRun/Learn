@@ -25,7 +25,6 @@ import java.util.stream.Collectors;
 public class $51_NQeens {
 
     List<List<String>> result = new ArrayList<>();
-    String[][] board;
     public List<List<String>> solveNQueens(int n) {
         String[][] board = new String[n][n];
         //初始化棋盘
