@@ -15,21 +15,21 @@ public class ThreadSleep {
         thread2.start();
     }
 
-    class MyThread extends Thread{
+    class MyThread extends Thread {
         @Override
         public void run() {
             synchronized (object) {
                 i++;
-                System.out.println("i:"+i);
+                System.out.println("i:" + i);
                 try {
-                    System.out.println("Thread"+Thread.currentThread().getName()+" into sleep");
+                    System.out.println("Thread" + Thread.currentThread().getName() + " into sleep");
                     sleep(2000);
                 } catch (InterruptedException e) {
                     // TODO: handle exception
                 }
-                System.out.println("Thread"+Thread.currentThread().getName()+" sleep end");
+                System.out.println("Thread" + Thread.currentThread().getName() + " sleep end");
                 i++;
-                System.out.println("i:"+i);
+                System.out.println("i:" + i);
             }
         }
     }
