@@ -10,7 +10,6 @@ public class DeadLock {
     public static void main(String[] args) {
         Runnable r1 = new Runnable() {
             @SneakyThrows
-            @Override
             public void run() {
                 synchronized (o1) {
                     System.out.println("get o1");
@@ -23,7 +22,6 @@ public class DeadLock {
         };
         Runnable r2 = new Runnable() {
             @SneakyThrows
-            @Override
             public void run() {
                 synchronized (o2) {
                     System.out.println("get o2");

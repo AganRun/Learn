@@ -1,6 +1,6 @@
 package com.agan.thread;
 
-public class ThreadWaitDemo {
+public class WaitNotifyDemo {
 
     public static void main(String[] args) throws InterruptedException {
         ThreadA t1 = new ThreadA("t1");
