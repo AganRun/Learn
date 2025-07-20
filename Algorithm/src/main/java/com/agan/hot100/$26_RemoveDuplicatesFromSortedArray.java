@@ -75,14 +75,10 @@ public class $26_RemoveDuplicatesFromSortedArray {
             if (nums.length <= 1) {
                 return nums.length;
             }
-            int left = 0, right = 1;
-            for (int i = right; i < nums.length; i++) {
-                if (nums[left] == nums[right]) {
-                    right++;
-                } else {
-                    left++;
-                    nums[left] = nums[right];
-                    right++;
+            int left = 0;
+            for (int right = 1; right < nums.length; right++) {
+                if (nums[left] != nums[right]) {
+                    nums[++left] = nums[right];
                 }
             }
             return left + 1;
