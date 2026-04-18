@@ -1,5 +1,10 @@
 package com.agan.hot100;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class TreeUtils {
 
     public static TreeNode buildTree(int[] arr) {
@@ -9,6 +14,7 @@ public class TreeUtils {
     }
 
     public static void build(int[] arr, TreeNode root, int index) {
+        if (root == null) return;
         int leftIndex = 2 * index + 1;
         if ((leftIndex) < arr.length) {
             TreeNode left;
@@ -33,11 +39,68 @@ public class TreeUtils {
         }
     }
 
+    /** 从 LeetCode 题面层序数组（含 null）构建二叉树，例如 {@code [10,5,-3,3,2,null,11,...]}。 */
+    public static TreeNode buildTree(Integer[] levelOrder) {
+        if (levelOrder == null || levelOrder.length == 0 || levelOrder[0] == null) {
+            return null;
+        }
+        TreeNode root = new TreeNode(levelOrder[0]);
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        int i = 1;
+        while (!q.isEmpty() && i < levelOrder.length) {
+            TreeNode cur = q.poll();
+
+            if (i < levelOrder.length) {
+                Integer leftVal = levelOrder[i++];
+                if (leftVal != null) {
+                    cur.left = new TreeNode(leftVal);
+                    q.offer(cur.left);
+                } else {
+                    cur.left = null;
+                }
+            }
+            if (i < levelOrder.length) {
+                Integer rightVal = levelOrder[i++];
+                if (rightVal != null) {
+                    cur.right = new TreeNode(rightVal);
+                    q.offer(cur.right);
+                } else {
+                    cur.right = null;
+                }
+            }
+        }
+        return root;
+    }
+
     // 用于获得树的层数
     public static int getTreeDepth(TreeNode root) {
         return root == null ? 0 : (1 + Math.max(getTreeDepth(root.left), getTreeDepth(root.right)));
     }
 
+    /** 力扣层序字符串，如 {@code [3,9,20,null,null,15,7]}；队列用 {@link LinkedList} 以便入队 null。 */
+    public static String toLevelOrderLeetCode(TreeNode root) {
+        if (root == null) {
+            return "[]";
+        }
+        List<String> parts = new ArrayList<>();
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            TreeNode n = q.poll();
+            if (n == null) {
+                parts.add("null");
+            } else {
+                parts.add(String.valueOf(n.val));
+                q.offer(n.left);
+                q.offer(n.right);
+            }
+        }
+        while (!parts.isEmpty() && "null".equals(parts.get(parts.size() - 1))) {
+            parts.remove(parts.size() - 1);
+        }
+        return "[" + String.join(",", parts) + "]";
+    }
 
     private static void writeArray(TreeNode currNode, int rowIndex, int columnIndex, String[][] res, int treeDepth) {
         // 保证输入的树不为空
